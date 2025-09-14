@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tooth Fairy Expense Tracker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <div class="logo">🧚‍♀️</div>
+      <h1>Tooth Fairy</h1>
+      <p class="subtitle">Expense Tracker</p>
+    </header>
+
+    <section class="balance-card">
+      <h2>Total Balance</h2>
+      <p id="totalBalance">You owe ₹0</p>
+    </section>
+
+    <section class="friends-section">
+      <h3>Friends</h3>
+      <ul id="friendsList"></ul>
+    </section>
+
+    <section class="expense-form">
+      <h3>Add Expense</h3>
+      <form id="expenseForm">
+        <input type="text" id="friendName" placeholder="Friend's name" required />
+        <input type="number" id="amount" placeholder="Amount (₹)" required />
+        <select id="paidBy">
+          <option value="you">Paid by You</option>
+          <option value="friend">Paid by Friend</option>
+        </select>
+        <button type="submit">Add Expense</button>
+      </form>
+    </section>
+
+    <footer>
+      <button class="nav-btn">
+         <a href="friends.html"> Friends</a>
+        </button>
+      <button class="nav-btn">Request</button>
+      <button class="nav-btn">
+         <a href="wallet.html"> Wallet</a>
+         </button>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

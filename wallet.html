@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wallet - Tooth Fairy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wallet-container">
+    <header>
+      <h2>💼 Wallet</h2>
+      <p class="wallet-balance">Current Balance: ₹<span id="walletBalance">0</span></p>
+    </header>
+
+    <section class="add-money-section">
+      <h3>Add Money</h3>
+      <form id="addMoneyForm">
+        <input type="text" id="moneyDesc" placeholder="Description (e.g. Birthday gift)" required />
+        <input type="number" id="moneyAmount" placeholder="Amount (₹)" required />
+        <button type="submit">Add to Wallet</button>
+        <button type="submit">
+            <a href="index.html"> Back to Home</a>
+            </button>
+      </form>
+    </section>
+
+    <section class="transaction-history">
+      <h3>Top-Up History</h3>
+      <ul id="moneyList"></ul>
+    </section>
+  </div>
+
+  <script>
+    let balance = 0;
+    const walletBalance = document.getElementById('walletBalance');
+    const moneyList = document.getElementById('moneyList');
+
+    document.getElementById('addMoneyForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const desc = document.getElementById('moneyDesc').value.trim();
+      const amount = parseFloat(document.getElementById('moneyAmount').value);
+
+      if (!desc || isNaN(amount)) return;
+
+      balance += amount;
+      walletBalance.textContent = balance;
+
+      const li = document.createElement('li');
+      li.textContent = `Added ₹${amount} - ${desc}`;
+      moneyList.prepend(li);
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+     

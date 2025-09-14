@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Tooth Fairy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wallet-container">
+    <div class="header">
+      <img src="logo.jpg" alt="Tooth Fairy Logo" class="logo-img" />
+      <h1 class="app-name">Tooth Fairy</h1>
+    </div>
+    <p class="subtitle">Expense Tracker</p>
+
+    <section class="login-section">
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+
+      <div class="login-options">
+        <a href="#" style="padding-left: 10px;">Forgot password</a>
+        <a href="#" style="padding-left: 50px;">Create an account</a>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Simulate login success
+      window.location.href = "index.html"; // Redirect to dashboard
+    });
+  </script>
+</body>
+</html>

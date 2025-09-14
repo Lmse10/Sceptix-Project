@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Friends - Tooth Fairy</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="friends-container">
+    <header>
+      <h2>👥 Friends</h2>
+    </header>
+
+    <section class="friends-list">
+      <ul id="friendsList">
+        <!-- Friends will be added dynamically -->
+      </ul>
+      <button class="nav-btn">
+         <a href="index.html"> Back to Home</a>
+         </button>
+    </section>
+  </div>
+
+  <script>
+    const friendsData = [
+      { name: "Earl E. Phant", balance: -92.21 },
+      { name: "Gajah", balance: -20.00 },
+      { name: "Jorge Jiraffa 🐼", balance: 0 },
+      { name: "Oli Fant", balance: -17.51 },
+      { name: "Stompy", balance: 87.28 },
+      { name: "Ravi", balance: 1.00 }
+    ];
+
+    const friendsList = document.getElementById('friendsList');
+
+    friendsData.forEach(friend => {
+      const li = document.createElement('li');
+      let status = '';
+
+      if (friend.balance > 0) {
+        status = `You are owed ₹${friend.balance.toFixed(2)}`;
+        li.classList.add('owed');
+      } else if (friend.balance < 0) {
+        status = `You owe ₹${Math.abs(friend.balance).toFixed(2)}`;
+        li.classList.add('owe');
+      } else {
+        status = `Settled up`;
+        li.classList.add('settled');
+      }
+
+      li.innerHTML = `<strong>${friend.name}</strong><br><span>${status}</span>`;
+      friendsList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
